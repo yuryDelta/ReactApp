@@ -6,5 +6,6 @@
         public string ItemName { get; set; }
         public double BidPrice { get; set; }
         public double AskPrice { get; set; }
+        public bool IsActive { get; set; }
     }
 }

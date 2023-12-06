@@ -1,6 +1,6 @@
 import { Counter } from "./components/Counter";
-import { FetchGridData } from "./components/FetchGridData";
 import { Home } from "./components/Home";
+import FetchGridData from "./components/FetchGridData";
 
 
 const AppRoutes = [

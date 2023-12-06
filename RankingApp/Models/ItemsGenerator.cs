@@ -31,6 +31,8 @@
                     BidPrice = Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
                     AskPrice = Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
                     ItemName = currency.CurrencyName,
+                    IsActive = i != 0 
+                    
                 };
                 items.Add(item);
 

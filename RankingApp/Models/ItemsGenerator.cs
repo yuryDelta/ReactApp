@@ -18,27 +18,45 @@
 
         };
 
-        public static List<Item> GetItems()
+        public static List<Item> GetAllItems()
         {
             List<Item> items = new List<Item>();
             int i = 0;
             foreach (CurrencyBase currency in MainCurrencies)
             {
-
                 var item = new Item()
                 {
                     Id = i,
-                    BidPrice = Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
-                    AskPrice = Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
+                    BidPrice = i == 0 ? 0.85 : Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
+                    AskPrice = i == 0 ? 0.87 : Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
                     ItemName = currency.CurrencyName,
-                    IsActive = i != 0 
-                    
+                    IsActive = true 
                 };
                 items.Add(item);
-
                 i++;
             }
+            return items;
+        }
 
+        public static List<Item> GetConfiguredItems(List<CurrencyConfig>? options)
+        {
+            List<Item> items = new List<Item>();
+            int i = 0;
+            foreach (CurrencyBase currency in MainCurrencies)
+            {   
+                var active = options?.FirstOrDefault(c => c.Id == i)?.Active;
+                var item = new Item()
+                {
+                    Id = i,
+                    BidPrice = i == 0 ? 0.85 : Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
+                    AskPrice = i == 0 ? 0.87 : Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
+                    ItemName = currency.CurrencyName,
+                    IsActive = true
+                };
+                if(active ??= true)
+                    items.Add(item);
+                i++;
+            }
             return items;
         }
 

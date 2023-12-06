@@ -1,8 +1,12 @@
+using RankingApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddOptions();
+builder.Services.Configure<CurrencyConfigOptions>(builder.Configuration.GetSection("CurrencyConfigOptions"));
 
 var app = builder.Build();
 

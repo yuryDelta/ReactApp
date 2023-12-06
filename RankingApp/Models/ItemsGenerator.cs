@@ -30,7 +30,6 @@
                     BidPrice = i == 0 ? 0.85 : Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
                     AskPrice = i == 0 ? 0.87 : Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
                     ItemName = currency.CurrencyName,
-                    IsActive = true 
                 };
                 items.Add(item);
                 i++;
@@ -51,7 +50,6 @@
                     BidPrice = i == 0 ? 0.85 : Math.Round(currency.Base - GetRandomNumber(0.01, 0.2), 2),
                     AskPrice = i == 0 ? 0.87 : Math.Round(currency.Base + GetRandomNumber(0.01, 0.2), 2),
                     ItemName = currency.CurrencyName,
-                    IsActive = true
                 };
                 if(active ??= true)
                     items.Add(item);

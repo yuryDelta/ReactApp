@@ -1,6 +1,5 @@
-import { Counter } from "./components/Counter";
+import DisplayGrid from "./components/DisplayGrid";
 import { Home } from "./components/Home";
-import FetchGridData from "./components/FetchGridData";
 
 
 const AppRoutes = [
@@ -9,13 +8,9 @@ const AppRoutes = [
         element: <Home />
     },
     {
-        path: '/counter',
-        element: <Counter />
-    },
-    {
-        path: '/fetch-data',
-        element: <FetchGridData />
-    },
+        path: '/displaygrid',
+        element: <DisplayGrid />
+    }
 ];
 
 export default AppRoutes;

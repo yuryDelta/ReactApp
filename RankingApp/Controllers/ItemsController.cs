@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Options;
 using RankingApp.Models;
 
-
 namespace RankingApp.Controllers
 {
     [ApiController]
@@ -17,11 +16,15 @@ namespace RankingApp.Controllers
             _options = options?.Value?.Options;
         }
 
-        //[Route("items/getitems")]
         [HttpGet]
         public IEnumerable<Item> Get()
         {
-            return ItemsGenerator.GetConfiguredItems(_options).ToArray();
+            var pairs = ItemsGenerator.GetConfiguredItems(_options).ToArray();
+            if(pairs.Length == 0)
+            {
+                _logger.LogWarning("No items configured or active.Please, check configuration in appsettings.json");
+            }
+            return pairs;
         }
 
     }

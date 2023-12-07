@@ -2,7 +2,8 @@
 {
     public class CurrencyBase
     {
-        public string CurrencyName { get; set; }
-        public double Base { get; set; }
+        public int Id  { get; init; }
+        public string CurrencyName { get; init; }
+        public double Base { get; init; }
     }
 }

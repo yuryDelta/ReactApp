@@ -6,9 +6,9 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <h1>This is test react application</h1>
- 
-      </div>
+        <h2>This is test react application</h2>
+        <p>Please go to "Display grid" to see main content</p>
+       </div>
     );
   }
 }
